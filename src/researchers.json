@@ -1,0 +1,30 @@
+{
+  "inbal_arnon": {
+    "name": "פרופ׳ ענבל ארנון",
+    "description": "המעבדה לעיבוד ולרכישת שפה",
+    "email": "",
+    "website": "https://www.arnonlanguagelab.com/",
+    "image": "https://user-images.githubusercontent.com/58976716/197348913-44ee03c0-8461-43df-8005-aeb58d0f7aed.png"
+  },
+  "ariel_Knafo": {
+    "name": "פרופ׳ אריאל כנפו",
+    "description": "המעבדה להתפתחות חברתית",
+    "email": "",
+    "website": "https://soclabweb.wixsite.com/home",
+    "image": "https://user-images.githubusercontent.com/58976716/197348917-6a0737d6-780e-48ad-a9d5-02b5a5052180.png"
+  },
+  "avi_benozio": {
+    "name": "ד״ר אבי בנוזיו",
+    "description": "המעבדה להתפתחות מוסר",
+    "email": "",
+    "website": "https://scholar.google.co.il/citations?user=-jS-xYoAAAAJ&hl=iw",
+    "image": "https://user-images.githubusercontent.com/58976716/197348911-e8157d75-3066-4d9b-bafc-c4cad86df9c9.png"
+  },
+  "shoam_hoshen": {
+    "name": "ד״ר שהם חשן-הלל",
+    "description": "המעבדה לקבלת החלטות",
+    "email": "",
+    "website": "https://shohamchoshen.wixsite.com/psych",
+    "image": "https://user-images.githubusercontent.com/58976716/197348918-5d6f067c-da7a-4588-a284-46da5f059100.png"
+  }
+}
