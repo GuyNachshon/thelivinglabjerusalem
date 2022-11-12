@@ -34,7 +34,11 @@
             </div>
             <div class="selected-publication-modal__card__right">
                 <div class="selected-publication-modal__card__right__top">
-                    <img src="src/assets/arrow-up-right-24.svg" alt="" class="selected-publication-modal__card__right__top__img" @click="openInNewTab(link)">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" @click="openInNewTab(link)"
+                    >
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.25 10.5C12.6642 10.5 13 10.1642 13 9.74998L13 0.75C13 0.335787 12.6642 1.68587e-06 12.25 1.3487e-06L3.25 0C2.83579 0 2.5 0.335786 2.5 0.749999C2.5 1.16421 2.83579 1.5 3.25 1.5L10.4393 1.5L0.21967 11.7197C-0.0732233 12.0125 -0.0732234 12.4874 0.21967 12.7803C0.512563 13.0732 0.987437 13.0732 1.28033 12.7803L11.5 2.56066L11.5 9.74998C11.5 10.1642 11.8358 10.5 12.25 10.5Z" fill="#24292F"/>
+                    </svg>
+
                 </div>
                 <div class="selected-publication-modal__card__right__content">
                     <div class="selected-publication-modal__card__right__content__abstract">
@@ -170,11 +174,13 @@ body {
             &__top {
                 display: flex;
                 flex-direction: row;
+
                 &__close-button {
                     cursor: pointer;
                     padding-left: $padding;
                     padding-top: $padding;
                 }
+
                 box-shadow: $border-bottom;
             }
 
@@ -230,6 +236,7 @@ body {
             font-family: "Aktiv Grotesk", sans-serif;
             height: 100%;
             width: 600px;
+
             &__top {
                 display: flex;
                 flex-direction: row;
@@ -239,6 +246,7 @@ body {
                     cursor: pointer;
                     padding-right: $padding;
                     padding-top: $padding;
+
                     &:hover {
                         animation: arrow-slide-animation 1s infinite;
                     }
@@ -250,6 +258,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: $padding*4;
+
                 &__title {
                     margin-right: 0.5rem;
                     font-weight: 700;
