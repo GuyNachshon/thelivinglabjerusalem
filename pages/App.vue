@@ -194,13 +194,13 @@
 </template>
 
 <script>
-import pastRes from './past-research.json'
-import findings from './findings.json'
-import publications from './publications.json'
-import researchers from './researchers.json'
-import us from './us.json'
-import publicationModal from "./components/publicationModal.vue";
-import openHoursModal from "./components/openHoursModal.vue";
+import pastRes from '../past-research.json'
+import findings from '../findings.json'
+import publications from '../publications.json'
+import researchers from '../researchers.json'
+import us from '../us.json'
+import publicationModal from "./publicationModal.vue";
+import openHoursModal from "./openHoursModal.vue";
 
 export default {
     name: 'App',
@@ -626,7 +626,7 @@ html, body {
     justify-content: space-evenly;
     width: 100%;
     min-height: 600px;
-    background: url(src/assets/gradient_cover.png) 0 0 / cover no-repeat;
+    background: url(../static/gradient_cover.png) 0 0 / cover no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -726,7 +726,7 @@ html, body {
     text-align: center;
     direction: rtl;
 
-    background: url(src/assets/gradient_cover.png) 0 0 / cover no-repeat;
+    background: url(../static/gradient_cover.png) 0 0 / cover no-repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1084,7 +1084,7 @@ html, body {
 
             &:hover {
                 animation: slide 3s infinite linear;
-                background: url(src/assets/gradient_cover.png) 0 0 / cover no-repeat;
+                background: url(../static/gradient_cover.png) 0 0 / cover no-repeat;
                 background-size: 400%;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1286,8 +1286,8 @@ html, body {
                 width: 200px;
                 margin: 20px;
                 overflow: hidden;
-                background: url(src/assets/gradient_cover.png) 0 0 / cover no-repeat;
-                cursor: url("src/assets/cursor.svg"), auto;
+                background: url(../static/gradient_cover.png) 0 0 / cover no-repeat;
+                cursor: url("../static/cursor.svg"), auto;
 
                 &__picture {
                     width: 200px;
@@ -1300,7 +1300,7 @@ html, body {
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                cursor: url("src/assets/cursor.svg"), auto;
+                cursor: url("../static/cursor.svg"), auto;
 
                 &__name {
                     font-family: "Aktiv Grotesk Hebr", sans-serif;

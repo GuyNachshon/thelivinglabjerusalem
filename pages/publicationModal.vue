@@ -6,7 +6,7 @@
             <div class="selected-publication-modal__card__left">
                 <div class="selected-publication-modal__card__left__top">
                     <div class="selected-publication-modal__card__left__top__close-button" @click="this.$emit('closeModal')">
-                        <img src="../assets/close.svg" alt="close">
+                        <img src="../static/close.svg" alt="close">
                     </div>
                 </div>
                 <div class="selected-publication-modal__card__left__content">
