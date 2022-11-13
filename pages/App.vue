@@ -21,7 +21,7 @@
                     <div class="landing__english__title">The Living Lab</div>
                     <div class="landing__english__subtitle">פרוייקט מחקר מדעי לכל המשפחה
                         ביוזמת האוניברסיטה העברית ומוזיאון
-                        המדע ע"ש בלומפילד בירושלים<br> לזכרו של נעם כנפו
+                        המדע ע"ש בלומפילד בירושלים,<br> לזכרו של נעם כנפו
                     </div>
                 </div>
                 <div class="landing__arabic">
