@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <publication-modal class="publication_modal" v-if="publicationModalItem" :item="publicationModalItem" @click="activeHoursModal" @closeModal="publicationModalItem = false"></publication-modal>
+        <publication-modal class="publication_modal" v-if="publicationModalItem" :item="publicationModalItem" @click="activeHoursModal" @closeModal="closeModal"></publication-modal>
         <div class="section__black">
             <div class="navbar">
                 <div class="navbar__link" @click="scrollMeTo('pastRes')">מחקרים</div>
@@ -70,7 +70,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <img :src="item.image" class="past_research__items__grid__item__picture"/>
+                            <div class="past_research__items__grid__item__picture_cont">
+                                <img :src="item.image" class="past_research__items__grid__item__picture_cont__pic"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -591,6 +593,7 @@ $border-right: 1px 0 0 0 $color-line;
 $border-bottom: 0 1px 0 0 $color-line;
 $border-left: -1px 0 0 0 $color-line;
 $border-all: 0 0 0 1px $color-line;
+$border-all-glow: 0 0 0 1px #9D69E0;
 
 $screen-breakpoint-mobile: 500px;
 $screen-breakpoint-tablet-portrait: 800px;
@@ -948,10 +951,13 @@ html, body {
 
                 }
 
-                &__picture {
+                &__picture_cont {
                     padding: 50px 50px 50px 0;
-                    height: 500px;
                     box-shadow: $border-right;
+                    &__pic {
+                        height: 500px;
+
+                    }
                 }
             }
 
@@ -1326,7 +1332,6 @@ html, body {
             justify-content: flex-start;
             align-items: center;
             direction: rtl;
-
 
 
             &__image_cont {
