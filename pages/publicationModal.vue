@@ -27,6 +27,9 @@
                                 {{ tag }}
                                 <span v-if="index < tags.length - 1">,&nbsp;</span>
                             </div>
+                            <div class="selected-publication-modal__card__left__content__tags__tag" v-if="tags.length === 0">
+                                No Keywords Were Given
+                            </div>
                         </div>
                     </div>
 
@@ -41,9 +44,7 @@
 
                 </div>
                 <div class="selected-publication-modal__card__right__content">
-                    <div class="selected-publication-modal__card__right__content__abstract">
-                        <span class="selected-publication-modal__card__right__content__title">Abstract</span>
-                        {{ abstract }}
+                    <div v-html="getAbstract" class="selected-publication-modal__card__right__content__abstract">
                     </div>
                 </div>
             </div>
@@ -77,6 +78,16 @@ export default {
         },
         openInNewTab(url) {
             window.open(url, '_blank');
+        }
+    },
+    computed: {
+        getAbstract() {
+            let text = this.abstract
+            text = '<span class="selected-publication-modal__card__right__content__title" style="font-weight: 700">Abstract&nbsp;</span>' + text
+            var urlRegex = /(https?:\/\/[^\s]+)/g;
+            return text.replace(urlRegex, function (url) {
+                return '<a href="' + url + '">' + url + '</a>';
+            })
         }
     }
 }
@@ -241,15 +252,19 @@ body {
                 display: flex;
                 flex-direction: row;
                 direction: rtl;
+                padding-right: 8px;
+                padding-top: 8px;
+                cursor: pointer;
 
                 &__img {
                     cursor: pointer;
                     padding-right: $padding;
                     padding-top: $padding;
 
-                    &:hover {
-                        animation: arrow-slide-animation 1s infinite;
-                    }
+
+                }
+                &:hover {
+                    animation: arrow-slide-animation 1s infinite;
                 }
             }
 

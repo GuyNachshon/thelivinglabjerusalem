@@ -3,7 +3,7 @@
 
         <div class="active_hours__content">
             <div class="active_hours__content__body">
-                איזה כיף שאתן רוצות לבוא!<br>
+                איזה כיף שאתן רוצות להגיע!<br>
                 המעבדה פעילה בימי שישי בין מהשעה 10:00 ועד השעה 14:00,<br> וגם במהלך חופשות החגים<br><br>
                 מוזיאון המדע ע״ש בלומפילד, ירושלים
             </div>
@@ -43,6 +43,8 @@ $color-background: #151515;
     height: 140px;
 
     margin-top: 14px;
+
+    direction: rtl;
 
     &__top {
         display: flex;

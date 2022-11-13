@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <publication-modal class="publication_modal" v-if="publicationModalItem" :item="publicationModalItem" @click="activeHoursModal"></publication-modal>
+        <publication-modal class="publication_modal" v-if="publicationModalItem" :item="publicationModalItem" @click="activeHoursModal" @closeModal="publicationModalItem = false"></publication-modal>
         <div class="section__black">
             <div class="navbar">
                 <div class="navbar__link" @click="scrollMeTo('pastRes')">מחקרים</div>
@@ -21,7 +21,7 @@
                     <div class="landing__english__title">The Living Lab</div>
                     <div class="landing__english__subtitle">פרוייקט מחקר מדעי לכל המשפחה
                         ביוזמת האוניברסיטה העברית ומוזיאון
-                        המדע ע"ש בלומפילד בירושלים, לזכרו של נעם כנפו.
+                        המדע ע"ש בלומפילד בירושלים<br> לזכרו של נעם כנפו
                     </div>
                 </div>
                 <div class="landing__arabic">
@@ -219,7 +219,24 @@ export default {
             numOfCirca: 1900,
             numOfYoungest: 0,
             numOfMultilang: 0,
-            numOfConventions: 0
+            numOfConventions: 0,
+            chocolateCoinsObserver: false,
+            chocolateCoinsObserverRun: false,
+            participantsObsrv: false,
+            participantsObsrvRun: false,
+            researchesObsrv: false,
+            researchesObsrvRun: false,
+            publicationsObsrv: false,
+            publicationsObsrvRun: false,
+            circaObsrv: false,
+            circaObsrvRun: false,
+            youngestObsrv: false,
+            youngestObsrvRun: false,
+            multilangObsrv: false,
+            multilangObsrvRun: false,
+            conventionsObsrv: false,
+            conventionsObsrvRun: false,
+
         }
     },
     components: {'publication-modal': publicationModal, 'open-hours-modal': openHoursModal},
@@ -268,7 +285,6 @@ export default {
         },
     },
     mounted() {
-
         const chocolateCoins = document.querySelector('#chocolate-coins');
         const fairness = document.querySelector('#fairness');
         const values = document.querySelector('#values');
@@ -284,8 +300,9 @@ export default {
         const logo_prpl = document.querySelectorAll('.logo_prpl');
         const logo_trqz = document.querySelectorAll('.logo_trqz');
 
-        const participantsObsrv = new IntersectionObserver(entries => {
+        this.participantsObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.participantsObsrvRun = true;
                 let isRunning = false
                 let finalNum = this.us['משתתפים']
                 finalNum = Number(this.us['משתתפים'].replace('+', '').replace(',', ''))
@@ -306,8 +323,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const circaObsrv = new IntersectionObserver(entries => {
+        this.circaObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.circaObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['שנת הקמה']
                 let currNum = 1900
@@ -327,8 +345,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const publicationsObsrv = new IntersectionObserver(entries => {
+        this.publicationsObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.publicationsObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['מאמרים']
                 let currNum = 0
@@ -348,8 +367,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const researchesObsrv = new IntersectionObserver(entries => {
+        this.researchesObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.researchesObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['מחקרים']
                 let currNum = 0
@@ -369,8 +389,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const youngestObsrv = new IntersectionObserver(entries => {
+        this.youngestObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.youngestObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['המשתתפת הצעירה ביותר']
 
@@ -391,8 +412,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const multilangObsrv = new IntersectionObserver(entries => {
+        this.multilangObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.multilangObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['משתתפים רב לשוניים']
                 finalNum = Number(this.us['משתתפים רב לשוניים'].replace('+', '').replace(',', ''))
@@ -413,8 +435,9 @@ export default {
                 this.isRunning = !this.isRunning
             }
         });
-        const conventionsObsrv = new IntersectionObserver(entries => {
+        this.conventionsObsrv = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
+                this.conventionsObsrvRun = true
                 let isRunning = false
                 let finalNum = this.us['כנסים']
 
@@ -477,21 +500,71 @@ export default {
 
         });
 
-        const chocolateCoinsObserver = new IntersectionObserver(entries => {
+        this.chocolateCoinsObserver = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
                 research_button.textContent = pastRes['chocolate-coins']['description'];
             }
         });
 
-        chocolateCoinsObserver.observe(chocolateCoins);
-        participantsObsrv.observe(participants)
-        circaObsrv.observe(circa)
-        publicationsObsrv.observe(publications)
-        researchesObsrv.observe(researches)
-        youngestObsrv.observe(youngest)
-        multilangObsrv.observe(multilang)
-        conventionsObsrv.observe(conventions)
+        this.chocolateCoinsObserver.observe(chocolateCoins);
+        this.participantsObsrv.observe(participants)
+        this.circaObsrv.observe(circa)
+        this.publicationsObsrv.observe(publications)
+        this.researchesObsrv.observe(researches)
+        this.youngestObsrv.observe(youngest)
+        this.multilangObsrv.observe(multilang)
+        this.conventionsObsrv.observe(conventions)
     },
+    watch: {
+        chocolateCoinsObserverRun: function () {
+            if (this.chocolateCoinsObserverRun) {
+                const chocolateCoins = document.querySelector('#chocolate-coins');
+                this.chocolateCoinsObserver.unobserve(chocolateCoins);
+            }
+        },
+        participantsObsrvRun: function () {
+            if (this.participantsObsrvRun) {
+                const participants = document.querySelector('#participants');
+                this.participantsObsrv.unobserve(participants);
+            }
+        },
+        circaObsrvRun: function () {
+            if (this.circaObsrvRun) {
+                const circa = document.querySelector('#circa');
+                this.circaObsrv.unobserve(circa);
+            }
+        },
+        publicationsObsrvRun: function () {
+            if (this.publicationsObsrvRun) {
+                const publications = document.querySelector('#publications');
+                this.publicationsObsrv.unobserve(publications);
+            }
+        },
+        researchesObsrvRun: function () {
+            if (this.researchesObsrvRun) {
+                const researches = document.querySelector('#researches');
+                this.researchesObsrv.unobserve(researches);
+            }
+        },
+        youngestObsrvRun: function () {
+            if (this.youngestObsrvRun) {
+                const youngest = document.querySelector('#youngest');
+                this.youngestObsrv.unobserve(youngest);
+            }
+        },
+        multilangObsrvRun: function () {
+            if (this.multilangObsrvRun) {
+                const multilang = document.querySelector('#multilang');
+                this.multilangObsrv.unobserve(multilang);
+            }
+        },
+        conventionsObsrvRun: function () {
+            if (this.conventionsObsrvRun) {
+                const conventions = document.querySelector('#conventions');
+                this.conventionsObsrv.unobserve(conventions);
+            }
+        }
+    }
 }
 </script>
 
@@ -781,28 +854,6 @@ html, body {
     }
 }
 
-.circle_animation {
-    animation: drawCircle 2s ease-in-out forwards;
-    animation-iteration-count: 1;
-}
-
-@keyframes drawCircle {
-    0% {
-        stroke-miterlimit: 10;
-        stroke-dasharray: 100;
-        stroke-dashoffset: 100;
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.9;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        opacity: 0.9;
-
-    }
-}
-
 .past_research {
     margin-top: 200px;
     display: flex;
@@ -833,7 +884,7 @@ html, body {
             width: 33%;
             display: flex;
             padding: 50px 0 50px 50px;
-            min-width: 180px;
+            min-width: 260px;
             height: 100%;
 
             &__button {
@@ -877,7 +928,6 @@ html, body {
                         justify-content: space-between;
                         font-family: "Aktiv Grotesk", sans-serif;
                         height: 100%;
-                        width: 900px;
                         padding: 100px 0;
 
                         &__description {
@@ -929,6 +979,7 @@ html, body {
             position: sticky;
             top: 0;
             width: 33%;
+            min-width: 200px;
             display: flex;
             padding: 50px 0 50px 50px;
 
