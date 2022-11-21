@@ -248,7 +248,7 @@ export default {
             element.scrollIntoView({behavior: 'smooth'});
         },
         sendEmail() {
-            window.location = 'mailto:test@example.com'
+            window.location = 'mailto:thelivinglabjerusalem@gmail.com'
         },
         openPublicationModal(publication) {
             let link, authors, abstract, tags, title;
