@@ -11,6 +11,7 @@
                     שעות פעילות
                     <open-hours-modal v-if="activeHoursModal"></open-hours-modal>
                 </div>
+                <div class="navbar__link" @click="openInNewTab('https://mada.smarticket.co.il/')">למוזיאון</div>
                 <div class="navbar__link" @click="scrollMeTo('us')">צרו קשר</div>
             </div>
             <div class="landing">
@@ -25,7 +26,9 @@
                     </div>
                 </div>
                 <div class="landing__arabic">
+                    <div class="landing__arabic__buy_tickets" @click="openInNewTab('https://mada.smarticket.co.il/')">לקניית כרטיסים למוזיאון המדע</div>
                     <div class="landing__arabic__title">المختبر المفتوح</div>
+
                 </div>
             </div>
         </div>
@@ -781,7 +784,31 @@ html, body {
         text-align: right;
         display: flex;
         width: 100%;
-        justify-content: right;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        &__buy_tickets {
+            font-family: "Aktiv Grotesk", sans-serif;
+            margin-top: 40px;
+            padding: 20px;
+            box-shadow: $border-all;
+            border-radius: 50px;
+            font-size: $text_level_5;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            direction: rtl;
+            height: 100%;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(100, 100, 5, 0.1);
+            }
+        }
+
 
         @include responsive($screen-breakpoint-laptop) {
             font-size: $title-size-laptop;
@@ -791,6 +818,8 @@ html, body {
 
         }
     }
+
+
 
 }
 
